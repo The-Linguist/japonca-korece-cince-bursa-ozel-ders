@@ -58,7 +58,7 @@ textarea{
 }
 @media (max-height:330px) {
   section{width: 100vw;}
-  textarea{min-width:91vw; max-width:97vw;}
+  textarea{min-width:80vw; max-width:90vw;}
 }
 button{
   padding: 7px; margin: 10px;
