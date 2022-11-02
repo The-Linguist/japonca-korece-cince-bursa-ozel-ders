@@ -51,7 +51,7 @@ h2{
 }
 textarea{
   min-width:85vmin; max-width:95vmin;
-  min-height: 12vh; max-height: 30vh;
+  min-height: 12vh; max-height: 26vh;
   font-size: 17px;
   padding: 2px;
   border: 2px dotted purple;
