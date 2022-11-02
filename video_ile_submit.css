@@ -29,7 +29,7 @@ video{
   video{width: 40vh; height: 40vh;}
 }
 @media (orientation: portrait) {
-  video{width: 85vmin; height: 85vmin;}
+  video{width: 80vmin; height: 80vmin;}
 }
 .videoBitinceGozuk{
   /* visibility: hidden; */ /*Too late until css loads -> move to inline*/
