@@ -11,7 +11,7 @@ main{
   background-color: white;
   min-width: 40vmin; min-height: 20vmin;
   max-width: 90vmin;
-  padding: 3ch;
+  padding: 25px;
   border-radius: 10px;
   display: flex; justify-content: center; align-items: center; flex-direction: column;
   text-align: justify; text-align-last: left;
@@ -20,7 +20,7 @@ main{
 p{
   font-size: 4vmin;
   font-family: "SF Pro","Helvetica","Roboto","Segoe UI Light","Segoe UI",sans-serif;
-  margin: 1ch;
+  margin: 1vmin;
 }
 iframe{
   position: fixed; top:0px; left:0px; width:100vw; height: 100%;
