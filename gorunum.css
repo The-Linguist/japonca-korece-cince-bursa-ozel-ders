@@ -1,26 +1,31 @@
 *, *::before, *::after{
-  box-sizing: border-box;
+  box-sizing: border-box; margin: 0px; padding: 0px;
 }
 main{
-  background-color: darkgray;
+  background-color: LightSteelBlue;
   position: fixed; left: 0px; top: 0px; width:100vw; height: 100%;
   display: flex; justify-content: center; align-items: center;
+  z-index: 99;
 }
 .mesajIcerenDiv{
   background-color: white;
-  min-width:40vmin; min-height: 20vmin;
+  min-width: 40vmin; min-height: 20vmin;
+  max-width: 90vmin;
   padding: 3ch;
   border-radius: 10px;
-  display: flex; justify-content: center; align-items: center;
+  display: flex; justify-content: center; align-items: center; flex-direction: column;
+  text-align: justify; text-align-last: left;
+  line-height: 5ch;
 }
 p{
-  font-size: 3vmin;
+  font-size: 25px;
   font-family: "SF Pro","Helvetica","Roboto","Segoe UI Light","Segoe UI",sans-serif;
+  margin: 1ch;
 }
-/*
-<!-- HTML !-->
-<button class="button-30" role="button">Button 30</button>
-*/
+iframe{
+  position: fixed; top:0px; left:0px; width:100vw; height: 100%;
+  border: 0px;
+}
 /* CSS */
 .button-30 {
   align-items: center;
@@ -39,17 +44,18 @@ p{
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* padding-left: 16px; */
+  /* padding-right: 16px; */
+  padding: 3ch;
   position: relative;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   transition: box-shadow .15s,transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   will-change: box-shadow,transform;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .button-30:focus {

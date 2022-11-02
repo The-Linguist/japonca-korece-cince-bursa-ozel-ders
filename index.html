@@ -1,4 +1,4 @@
-<html>
+<html lang="tr" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -6,12 +6,30 @@
     <link rel="stylesheet" href="gorunum.css">
   </head>
   <body>
+    <iframe src=""></iframe>
     <main>
       <div class="mesajIcerenDiv">
         <p>Beykağan Hoca'nın dersleriyle ilgili bilgi almak ve eğer isterseniz talep oluşturmak için ilgilendiğiniz dili seçiniz</p>
+        <div class="" style="text-align:center;">
+          <button style="text-align:center; font-size: 13px; padding-left: 16px; padding-right: 16px;" role="button" disabled>Japonca<br>日本語</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="button-30" role="button">Korece<br>한국어</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button style="text-align:center; font-size: 13px; padding-left: 16px; padding-right: 16px;" role="button" disabled>Çince<br>華語</button>
+        </div>
       </div>
     </main>
-
-
+    <script type="text/javascript">
+      const main = document.getElementsByTagName('main')[0];
+      const freym = document.getElementsByTagName('iframe')[0];
+      const secimJaponca = document.getElementsByTagName('button')[0];
+      const secimKorece = document.getElementsByTagName('button')[1];
+      const secimCince = document.getElementsByTagName('button')[2];
+      secimKorece.addEventListener("mouseup",koreceHtmlYukle);
+      function koreceHtmlYukle() {
+        freym.src = "korece.html";
+        setTimeout(function () {
+          main.style.display = "none";
+        }, 500);
+      }
+    </script>
   </body>
 </html>
