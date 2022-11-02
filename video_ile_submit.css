@@ -15,10 +15,11 @@ section{
   width: 100vmin; /*When mobile keyboard is visible vmin becomes viewport height*/
   height: 100%;
   display: flex; justify-content: flex-start; align-items: center; flex-direction: column;
+  border: 2px dotted cyan;
 }
-@media (max-height:300px) {
+@media (max-height:330px) {
   section{width: 100vw;}
-  textarea{min-width:85vw; max-width:95vw;}
+  textarea{min-width:91vw; max-width:97vw;}
 }
 video{
   /* width: 90vmin; height: 90vmin; */
@@ -57,6 +58,7 @@ textarea{
   min-height: 10vh; max-height: 30vh;
   font-size: 17px;
   padding: 2px;
+  border: 2px dotted purple;
 }
 button{
   padding: 7px; margin: 10px;
