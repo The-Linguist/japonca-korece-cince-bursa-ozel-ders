@@ -18,7 +18,7 @@ main{
   line-height: 5ch;
 }
 p{
-  font-size: 25px;
+  font-size: 4vmin;
   font-family: "SF Pro","Helvetica","Roboto","Segoe UI Light","Segoe UI",sans-serif;
   margin: 1ch;
 }
