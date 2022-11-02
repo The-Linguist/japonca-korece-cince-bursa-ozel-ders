@@ -1,9 +1,45 @@
 <html lang="tr" dir="ltr">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>KORECE</title>
+    <link rel="stylesheet" href="video_ile_submit.css">
   </head>
   <body>
-    <p>AAAaaa</p>
+    <main>
+      <section>
+        <video src="korece.mp4" controls playsinline onplay="videoIzleniyor();"></video>
+        <div class="videoBitinceGozuk">
+          <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
+          <textarea onfocus="videoyuKucult();"></textarea>
+          <button role="button" onmouseup="gondereBasildi();">Gönder</button>
+        </div>
+        <div class="gonderilinceGozuk">
+          <h2>İlginiz için teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript">
+      const v = document.getElementsByTagName('video')[0];
+      const talep = document.getElementsByTagName('h2')[0];
+      function videoyuKucult() {
+        v.style.width = "20vh"; v.style.height = "20vh";
+        talep.style.transform = "scale(0.88)";
+      }
+      function gondereBasildi() {
+        document.querySelector('.videoBitinceGozuk').style.display = "none";
+        document.querySelector('.gonderilinceGozuk').style.display = "block";
+      }
+      var firstPlay = true;
+      function videoIzleniyor() {
+        if (firstPlay) {
+          setTimeout(function () {
+            document.querySelector('.videoBitinceGozuk').style.visibility = "visible";
+            document.querySelector('.videoBitinceGozuk').style.opacity = "1";
+          }, 5000);
+        }
+        firstPlay = false;
+      }
+    </script>
   </body>
 </html>
