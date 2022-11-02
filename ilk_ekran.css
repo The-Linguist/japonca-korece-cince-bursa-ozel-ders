@@ -44,10 +44,10 @@ iframe{
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 1ch;
-  padding-right: 1ch;
-  padding-top: 2.8ch;
-  padding-bottom: 3ch;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+  padding-bottom: 35px;
   position: relative;
   text-align: center;
   text-decoration: none;
