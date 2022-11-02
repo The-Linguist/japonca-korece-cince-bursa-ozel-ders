@@ -52,8 +52,8 @@ h2{
   font-size: calc(2vmin + 8px);
 }
 textarea{
-  min-width:85vmin; max-width:95vmin;
-  min-height: 15vh; max-height: 30vh;
+  min-width:85vmin; max-width:95vw;
+  min-height: 10vh; max-height: 30vh;
   font-size: 17px;
   padding: 2px;
 }
