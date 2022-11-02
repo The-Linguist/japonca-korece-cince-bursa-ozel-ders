@@ -15,7 +15,7 @@ section{
   width: 100vmin; /*When mobile keyboard is visible vmin becomes viewport height*/
   height: 100%;
   display: flex; justify-content: flex-start; align-items: center; flex-direction: column;
-  border: 2px dotted cyan;
+  /* border: 2px dotted cyan; */
 }
 video{
   /* width: 90vmin; height: 90vmin; */
@@ -54,7 +54,7 @@ textarea{
   min-height: 12vh; max-height: 26vh;
   font-size: 17px;
   padding: 2px;
-  border: 2px dotted purple;
+  /* border: 2px dotted purple; */
 }
 @media (max-height:330px) {
   section{width: 100vw;}
