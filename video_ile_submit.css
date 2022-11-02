@@ -12,9 +12,12 @@ main{
   background-size: cover;
 }
 section{
-  /* width: 100vmin; */ /*When mobile keyboard is visible vmin becomes viewport height*/
+  width: 100vmin; /*When mobile keyboard is visible vmin becomes viewport height*/
   height: 100%;
   display: flex; justify-content: flex-start; align-items: center; flex-direction: column;
+}
+@media (max-height:300px) {
+  section{width: 100vw; border: 2px dotted orange;}
 }
 video{
   /* width: 90vmin; height: 90vmin; */
@@ -26,11 +29,9 @@ video{
 }
 @media (orientation: landscape) {
   video{width: 40vh; height: 40vh;}
-  section{width: 100vmin; border: 2px dotted yellow;}
 }
 @media (orientation: portrait) {
   video{width: 80vmin; height: 80vmin;}
-  section{width: 100vw; border: 2px dotted orange;}
 }
 .videoBitinceGozuk{
   /* visibility: hidden; */ /*Too late until css loads -> move to inline*/
