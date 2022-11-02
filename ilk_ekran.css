@@ -15,7 +15,7 @@ main{
   border-radius: 10px;
   display: flex; justify-content: center; align-items: center; flex-direction: column;
   text-align: justify; text-align-last: left;
-  line-height: 5ch;
+  line-height: 6vmin;
 }
 p{
   font-size: 4vmin;
@@ -44,9 +44,9 @@ iframe{
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  /* padding-left: 16px; */
-  /* padding-right: 16px; */
-  padding: 3ch;
+  padding-left: 1ch;
+  padding-right: 1ch;
+  /* padding: 3ch; */
   position: relative;
   text-align: center;
   text-decoration: none;
