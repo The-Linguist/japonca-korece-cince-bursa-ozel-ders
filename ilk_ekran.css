@@ -46,7 +46,8 @@ iframe{
   overflow: hidden;
   padding-left: 1ch;
   padding-right: 1ch;
-  /* padding: 3ch; */
+  padding-top: 2.8ch;
+  padding-bottom: 3ch;
   position: relative;
   text-align: center;
   text-decoration: none;
