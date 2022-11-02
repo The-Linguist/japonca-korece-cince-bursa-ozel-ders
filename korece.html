@@ -11,8 +11,8 @@
         <video src="korece.mp4" controls playsinline onplay="videoIzleniyor();"></video>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
-          <textarea onfocus="videoyuKucult();"></textarea>
-          <button role="button" onmouseup="gondereBasildi();">Gönder</button>
+          <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
+          <button disabled role="button" onmouseup="gondereBasildi();">Gönder</button>
         </div>
         <div class="gonderilinceGozuk">
           <h2>Teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
@@ -22,9 +22,17 @@
     <script type="text/javascript">
       const v = document.getElementsByTagName('video')[0];
       const talep = document.getElementsByTagName('h2')[0];
+      const metin = document.getElementsByTagName('textarea')[0];
+      const b = document.getElementsByTagName('button')[0];
       function videoyuKucult() {
         v.style.width = "20vh"; v.style.height = "20vh";
         talep.style.transform = "scale(0.88)";
+        talep.style.fontSize = "calc(1.5vmin + 6px)";
+      }
+      function birseylerYaziliyor() {
+        if (metin.value.length==5) {
+          b.removeAttribute("disabled");
+        }
       }
       function gondereBasildi() {
         document.querySelector('.videoBitinceGozuk').style.display = "none";
