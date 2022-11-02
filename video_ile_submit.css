@@ -12,7 +12,7 @@ main{
   background-size: cover;
 }
 section{
-  /* border: 2px dotted green; */
+  border: 2px dotted green;
   width: 100vmin;
   height: 100%;
   display: flex; justify-content: flex-start; align-items: center; flex-direction: column;
@@ -29,13 +29,13 @@ video{
   video{width: 40vh; height: 40vh;}
 }
 @media (orientation: portrait) {
-  video{width: 90vmin; height: 90vmin;}
+  video{width: 85vmin; height: 85vmin;}
 }
 .videoBitinceGozuk{
   /* visibility: hidden; */ /*Too late until css loads -> move to inline*/
   opacity: 0.1;
   display: flex; justify-content: flex-start; align-items: center; flex-direction: column;
-  /* border: 2px dotted blue; */
+  border: 2px dotted blue;
   transition: opacity 2s;
 }
 h2{
@@ -50,15 +50,14 @@ h2{
   font-size: calc(2vmin + 8px);
 }
 textarea{
-  min-width:75vmin; max-width:85vmin;
-  min-height: 11vh; max-height: 25vh;
-  font-size: 19px;
+  min-width:85vmin; max-width:95vmin;
+  min-height: 15vh; max-height: 30vh;
+  font-size: 17px;
+  padding: 2px;
 }
 button{
   padding: 7px; margin: 10px;
 }
-
-
 .gonderilinceGozuk{
   display: none;
   /* border: 2px dotted red; */
