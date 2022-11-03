@@ -35,8 +35,8 @@
         }
       }
       function gondereBasildi() {
-        document.querySelector('.videoBitinceGozuk').style.display = "none";
-        document.querySelector('.gonderilinceGozuk').style.display = "block";
+        ////document.querySelector('.videoBitinceGozuk').style.display = "none";
+        ////document.querySelector('.gonderilinceGozuk').style.display = "block";
       }
       var firstPlay = true;
       function videoIzleniyor() {
@@ -80,7 +80,13 @@
         const tarih = d.toUTCString();
         const basvuranNeYazmis = metin.value;
         const db = getDatabase();
-        set(ref(db, tarih), basvuranNeYazmis);
+        set(ref(db, tarih), basvuranNeYazmis).then(() => {
+          document.querySelector('.videoBitinceGozuk').style.display = "none";
+          document.querySelector('.gonderilinceGozuk').style.display = "block";
+        })
+        .catch((error) => {
+          alert("Bağlantı hatası nedeniyle kayıt alınamadı");
+        });
       }
     </script>
   </body>
