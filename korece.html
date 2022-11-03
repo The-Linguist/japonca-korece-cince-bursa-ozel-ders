@@ -12,7 +12,7 @@
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
-          <button disabled role="button" onmouseup="gondereBasildi();">Gönder</button>
+          <button disabled role="button">Gönder</button>
         </div>
         <div class="gonderilinceGozuk">
           <h2>Teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
@@ -33,10 +33,6 @@
         if (metin.value.length==5) {
           dugme.removeAttribute("disabled");
         }
-      }
-      function gondereBasildi() {
-        ////document.querySelector('.videoBitinceGozuk').style.display = "none";
-        ////document.querySelector('.gonderilinceGozuk').style.display = "block";
       }
       var firstPlay = true;
       function videoIzleniyor() {
@@ -81,13 +77,12 @@
       ////const analytics = getAnalytics(app);
       dugme.addEventListener("mouseup",writeUserData);
       import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-      // const yaziBolgesi = document.getElementsByTagName('textarea')[0];
       function writeUserData() {
         dugme.innerHTML = "Bağlanıyor";
         dugme.setAttribute("disabled", "");
         const d = new Date();
         const tarih = d.toUTCString();
-        const basvuranNeYazmis = metin.value;
+        const basvuranNeYazmis = metin.value + " :: KORECE İÇİN BAŞVURUSUNU YAPTI";
         const db = getDatabase();
 
         set(ref(db, tarih), basvuranNeYazmis).then(() => {
@@ -106,6 +101,16 @@
            console.log('FAILED...', error);
         });
       }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKPP55Q9QH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HKPP55Q9QH');
     </script>
   </body>
 </html>
