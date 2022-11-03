@@ -52,8 +52,8 @@
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
+      ////import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+      // Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
@@ -65,12 +65,12 @@
         storageBucket: "ozel-ders-basvuru-topla.appspot.com",
         messagingSenderId: "406858837266",
         appId: "1:406858837266:web:e6cc72f2292e5cdf45d7cb",
-        measurementId: "G-HKPP55Q9QH"
+        ////measurementId: "G-HKPP55Q9QH"
       };
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+      ////const analytics = getAnalytics(app);
       dugme.addEventListener("mouseup",writeUserData);
       import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
       // const yaziBolgesi = document.getElementsByTagName('textarea')[0];
