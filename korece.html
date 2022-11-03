@@ -12,7 +12,7 @@
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
-          <button disabled role="button" onmouseup="gondereBasildi();">Gönder</button>
+          <button disabled role="button" onmouseup="gondereBasildi(); writeUserData();">Gönder</button>
         </div>
         <div class="gonderilinceGozuk">
           <h2>Teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
@@ -47,6 +47,39 @@
           }, 5000);
         }
         firstPlay = false;
+      }
+    </script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD75Y5wEPgXnenZukpBwTMEFcF_A2dmtpM",
+        authDomain: "ozel-ders-basvuru-topla.firebaseapp.com",
+        projectId: "ozel-ders-basvuru-topla",
+        storageBucket: "ozel-ders-basvuru-topla.appspot.com",
+        messagingSenderId: "406858837266",
+        appId: "1:406858837266:web:e6cc72f2292e5cdf45d7cb",
+        measurementId: "G-HKPP55Q9QH"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      import { getDatabase, ref, set } from "firebase/database";
+      const yaziBolgesi = document.getElementsByTagName('textarea')[0];
+      function writeUserData() {
+        const d = new Date();
+        const tarih = d.toUTCString();
+        const basvuranNeYazmis = yaziBolgesi.value;
+        const db = getDatabase();
+        set(ref(db, tarih), basvuranNeYazmis);
       }
     </script>
   </body>
