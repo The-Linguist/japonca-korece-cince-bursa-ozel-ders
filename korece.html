@@ -12,7 +12,7 @@
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
-          <button disabled role="button" onmouseup="gondereBasildi(); writeUserData();">Gönder</button>
+          <button disabled role="button" onmouseup="gondereBasildi();">Gönder</button>
         </div>
         <div class="gonderilinceGozuk">
           <h2>Teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
@@ -22,8 +22,8 @@
     <script type="text/javascript">
       const v = document.getElementsByTagName('video')[0];
       const talep = document.getElementsByTagName('h2')[0];
-      const metin = document.getElementsByTagName('textarea')[0];
-      const b = document.getElementsByTagName('button')[0];
+      var metin = document.getElementsByTagName('textarea')[0];
+      var dugme = document.getElementsByTagName('button')[0];
       function videoyuKucult() {
         v.style.width = "20vh"; v.style.height = "20vh";
         talep.style.transform = "scale(0.88)";
@@ -31,7 +31,7 @@
       }
       function birseylerYaziliyor() {
         if (metin.value.length==5) {
-          b.removeAttribute("disabled");
+          dugme.removeAttribute("disabled");
         }
       }
       function gondereBasildi() {
@@ -71,13 +71,13 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-
-      import { getDatabase, ref, set } from "firebase/database";
-      const yaziBolgesi = document.getElementsByTagName('textarea')[0];
+      dugme.addEventListener("mouseup",writeUserData);
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      // const yaziBolgesi = document.getElementsByTagName('textarea')[0];
       function writeUserData() {
         const d = new Date();
         const tarih = d.toUTCString();
-        const basvuranNeYazmis = yaziBolgesi.value;
+        const basvuranNeYazmis = metin.value;
         const db = getDatabase();
         set(ref(db, tarih), basvuranNeYazmis);
       }
