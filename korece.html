@@ -76,6 +76,7 @@
       import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
       // const yaziBolgesi = document.getElementsByTagName('textarea')[0];
       function writeUserData() {
+        dugme.createAttribute("disabled");
         const d = new Date();
         const tarih = d.toUTCString();
         const basvuranNeYazmis = metin.value;
