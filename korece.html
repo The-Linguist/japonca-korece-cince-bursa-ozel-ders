@@ -100,11 +100,11 @@
         //----
         var templateParams = {              name: '---',              notes: '....'          };
         emailjs.send('service_7mfbarw', 'template_756poag', templateParams)
-            .then(function(response) {
-               console.log('SUCCESS!', response.status, response.text);
-            }, function(error) {
-               console.log('FAILED...', error);
-            });
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
+        });
       }
     </script>
   </body>
