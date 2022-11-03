@@ -61,6 +61,7 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD75Y5wEPgXnenZukpBwTMEFcF_A2dmtpM",
         authDomain: "ozel-ders-basvuru-topla.firebaseapp.com",
+        databaseURL: "https://ozel-ders-basvuru-topla-default-rtdb.europe-west1.firebasedatabase.app",
         projectId: "ozel-ders-basvuru-topla",
         storageBucket: "ozel-ders-basvuru-topla.appspot.com",
         messagingSenderId: "406858837266",
@@ -73,7 +74,6 @@
       ////const analytics = getAnalytics(app);
       dugme.addEventListener("mouseup",writeUserData);
       import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-      ref = Database.database("https://ozel-ders-basvuru-topla-default-rtdb.europe-west1.firebasedatabase.app");
       // const yaziBolgesi = document.getElementsByTagName('textarea')[0];
       function writeUserData() {
         const d = new Date();
