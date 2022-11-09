@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <title>JAPONCA KORECE ÇİNCE - Bursa Özel Ders</title>
     <link rel="stylesheet" href="ilk_ekran.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKPP55Q9QH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HKPP55Q9QH');
+    </script>
   </head>
   <body>
     <iframe src=""></iframe>
@@ -14,8 +22,8 @@
       <div class="mesajIcerenDiv dropShadow">
         <p>Beykağan Hoca'nın dersleriyle ilgili bilgi almak ve eğer isterseniz ders talebi oluşturmak için ilgilendiğiniz dili seçiniz</p>
         <div class="" style="text-align:center;">
-          <button style="text-align:center; font-size: 11px; padding-left: 1ch; padding-right: 1ch;" role="button" disabled>Japonca<br>日本語</button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="button-30" role="button">Korece<br>한국어</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="button-30" role="button">Japonca<br>日本語</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button style="text-align:center; font-size: 11px; padding-left: 1ch; padding-right: 1ch;" role="button" disabled>Korece<br>한국어</button>&nbsp;&nbsp;&nbsp;&nbsp;
           <button style="text-align:center; font-size: 11px; padding-left: 1ch; padding-right: 1ch;" role="button" disabled>Çince<br>華語</button>
         </div>
       </div>
@@ -26,6 +34,14 @@
       const secimJaponca = document.getElementsByTagName('button')[0];
       const secimKorece = document.getElementsByTagName('button')[1];
       const secimCince = document.getElementsByTagName('button')[2];
+      secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
+      function hitocaHtmlYukle() {
+        freym.src = "japonca.html";
+        setTimeout(function () {
+          main.style.display = "none";
+        }, 500);
+      }
+      /*
       secimKorece.addEventListener("mouseup",koreceHtmlYukle);
       function koreceHtmlYukle() {
         freym.src = "korece.html";
@@ -33,6 +49,7 @@
           main.style.display = "none";
         }, 500);
       }
+      */
     </script>
   </body>
 </html>

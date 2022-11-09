@@ -2,16 +2,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>KORECE</title>
+    <title>JAPONCA</title>
     <link rel="stylesheet" href="video_ile_submit.css">
     <style>
-      main{background-image: url("koreabg.webp");}
+      main{background-image: url("japanbg.webp");}
     </style>
   </head>
   <body>
     <main>
       <section>
-        <video poster="korece_poster.jpg" src="korece.mp4" controls playsinline onplay="videoIzleniyor(); "></video>
+        <video poster="hitoca_poster.jpg" src="hitoca.mp4" controls playsinline onplay="videoIzleniyor(); "></video>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
@@ -50,7 +50,7 @@
       }
       function videoIzleniyor() {
         if (firstPlay) {
-          let mesajKutusuBelirmeSuresi = 10000;
+          let mesajKutusuBelirmeSuresi = 120000;
           setTimeout(function () {
             document.querySelector('.videoBitinceGozuk').style.visibility = "visible";
             document.querySelector('.videoBitinceGozuk').style.opacity = "1";
@@ -97,7 +97,7 @@
         dugme.setAttribute("disabled", "");
         const d = new Date();
         const tarih = d.toUTCString();
-        const basvuranNeYazmis = metin.value + " :: KORECE İÇİN BAŞVURUSUNU YAPTI";
+        const basvuranNeYazmis = metin.value + " :: JAPONCA İÇİN BAŞVURUSUNU YAPTI";
         const db = getDatabase();
 
         set(ref(db, tarih), basvuranNeYazmis).then(() => {
@@ -131,6 +131,6 @@
     <script>
       gtag('event', 'conversion', {'send_to': 'AW-11021503070/W67uCJLqwoEYEN6Uu4cp'});
     </script>
-    
+
   </body>
 </html>
