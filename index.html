@@ -32,7 +32,19 @@
       const main = document.getElementsByTagName('main')[0];
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
-        main.style.animationName = "changeBg";
+        async function loadFiles () {
+          const myCache1 = await caches.open('my-cache-1');
+          const firstGroup = ['bg/1.webp', 'bg/2.webp','bg/3.webp','bg/4.webp','bg/5.webp','bg/6.webp','bg/7.webp','bg/8.webp'];
+          try {
+            await myCache1.addAll(firstGroup);
+          } catch(err) {
+            console.error(err);
+          } finally {
+            console.log("cache done");
+            main.style.animationName = "changeBg";
+          }
+        }
+        loadFiles();
       }
 
       const freym = document.getElementsByTagName('iframe')[0];
