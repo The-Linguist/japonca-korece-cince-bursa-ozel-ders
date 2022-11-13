@@ -16,7 +16,7 @@ main{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  animation-name: changeBg; animation-duration: 25s; animation-timing-function: step-start; animation-iteration-count: infinite;
+  animation-duration: 29s; animation-timing-function: step-start; animation-iteration-count: infinite;
 }
 @keyframes changeBg {
   0%{background-image: url("bg/0.webp");}

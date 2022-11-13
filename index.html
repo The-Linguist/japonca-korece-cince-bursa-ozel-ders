@@ -30,6 +30,11 @@
     </main>
     <script type="text/javascript">
       const main = document.getElementsByTagName('main')[0];
+      window.addEventListener("load",startBgLoop);
+      function startBgLoop() {
+        main.style.animationName = "changeBg";
+      }
+
       const freym = document.getElementsByTagName('iframe')[0];
       const secimJaponca = document.getElementsByTagName('button')[0];
       const secimKorece = document.getElementsByTagName('button')[1];
