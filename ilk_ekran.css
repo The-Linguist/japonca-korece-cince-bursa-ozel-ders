@@ -12,7 +12,7 @@ main{
   position: fixed; left: 0px; top: 0px; width:100vw; height: 100%;
   display: flex; justify-content: center; align-items: center; flex-direction: column;
   z-index: 99;
-  background-image: url("bg/0.webp"); background-color: #9cc2e4;
+  background-image: url("bg/0.webp"); background-color: black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
