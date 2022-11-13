@@ -17,6 +17,16 @@
       gtag('config', 'AW-11021503070');
     </script>
 
+    <!-- Event snippet for Giden tıklama conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion() {
+      gtag('event', 'conversion', {
+          'send_to': 'AW-11021503070/JlE2CIuCg4IYEN6Uu4cp'
+      });
+      return false;
+    }
+    </script>
 
 
   </head>
@@ -60,6 +70,7 @@
       const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
+        gtag_report_conversion();
         freym.src = "japonca.html";
         setTimeout(function () {
           main.style.display = "none";
@@ -68,6 +79,7 @@
       /*
       secimKorece.addEventListener("mouseup",koreceHtmlYukle);
       function koreceHtmlYukle() {
+        gtag_report_conversion();
         freym.src = "korece.html";
         setTimeout(function () {
           main.style.display = "none";
