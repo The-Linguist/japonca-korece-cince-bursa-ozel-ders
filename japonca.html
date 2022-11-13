@@ -20,7 +20,7 @@
 
 
     <script type="application/javascript">
-      var ipNo = "belirsiz IP";
+      var ipNo = "bel.ir.siz.I.P";
       function getIP(json) {
         //document.write("My public IP address is: ", json.ip);
         ipNo = json.ip;
@@ -138,11 +138,13 @@
         });
       }
 
-      v.addEventListener("mouseup",writeUserIP,{once:true});
+      v.addEventListener("play",writeUserIP,{once:true});
       function writeUserIP() {
         const db = getDatabase();
+        const i = ipNo.split(".");
+        const p = i[0]+"_"+i[1]+"_"+i[2]+"_"+i[3];
         //---- To firebase
-        set(ref(db, ipNo), " video izlemeye başladı").then(() => {
+        set(ref(db, p), " video izlemeye başladı").then(() => {
           console.log("ip -> OK");
         })
         .catch((error) => {
