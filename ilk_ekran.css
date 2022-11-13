@@ -30,7 +30,7 @@ main{
   80%{background-image: url("bg/8.webp");}
 }
 .mesajIcerenDiv{
-  background-color: white;
+  background-color: rgba(255,255,255,0.90);
   min-width: 40vmin; min-height: 20vmin;
   max-width: 90vmin;
   padding: calc(3.5vmin + 5px);
@@ -40,7 +40,7 @@ main{
   line-height: 6vmin;
 }
 p{
-  font-size: 4vmin;
+  font-size: 3.75vmin;
   font-family: "SF Pro","Helvetica","Roboto","Segoe UI Light","Segoe UI",sans-serif;
   margin-bottom: 3vmin;
 }
