@@ -47,6 +47,7 @@
     </main>
     <script type="text/javascript">
       const main = document.getElementsByTagName('main')[0];
+      const freym = document.getElementsByTagName('iframe')[0];
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
         async function loadFiles () {
@@ -62,9 +63,18 @@
           }
         }
         loadFiles();
+
+        // After 30 seconds go to video even if button is not clicked
+        setTimeout(function () {
+          freym.src = "japonca.html";
+          setTimeout(function () {
+            main.style.display = "none";
+          }, 500);
+          gtag_report_conversion(); // Madem 30 saniye beklemiş, bunu da dönüşüm sayalım
+        }, 30000);
       }
 
-      const freym = document.getElementsByTagName('iframe')[0];
+
       const secimJaponca = document.getElementsByTagName('button')[0];
       const secimKorece = document.getElementsByTagName('button')[1];
       const secimCince = document.getElementsByTagName('button')[2];
