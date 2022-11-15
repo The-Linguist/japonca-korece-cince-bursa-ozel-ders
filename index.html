@@ -48,6 +48,7 @@
     <script type="text/javascript">
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
+      var geriSayim;
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
         async function loadFiles () {
@@ -65,7 +66,7 @@
         loadFiles();
 
         // After 30 seconds go to video even if button is not clicked
-        setTimeout(function () {
+        geriSayim = setTimeout(function () {
           freym.src = "japonca.html";
           setTimeout(function () {
             main.style.display = "none";
@@ -85,6 +86,9 @@
         setTimeout(function () {
           main.style.display = "none";
         }, 500);
+        if (geriSayim) {
+          clearTimeout(geriSayim);
+        }
       }
       /*
       secimKorece.addEventListener("mouseup",koreceHtmlYukle);
