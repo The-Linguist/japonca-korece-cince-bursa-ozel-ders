@@ -49,8 +49,9 @@
     <script type="text/javascript">
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
-      var geriSayim;
-      var zamanDoldu = false;
+      //var geriSayim;
+      var zamanDoldu30s = false;
+      var zamanDoldu15s = false;
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
         async function loadFiles () {
@@ -67,16 +68,20 @@
             main.style.animationName = "changeBg";
             await myCache2.addAll(secondGroup);
             console.log("cache2 as well");
-            if (zamanDoldu) {
-              console.log("It took more than 28s to cache the video");
+            if (zamanDoldu30s) {
+              console.log("It took more than 28s to cache the video\nNavigate immediately");
               goToVideo();
-            } else {
+            } else if (zamanDoldu15s) {
+              console.log("It took more than 15s to cache the video\nWill wait 15s before navigating");
               setTimeout(function () {
-                console.log("video loaded but it's too early to navigate\nWill wait 15s");
                 goToVideo();
               }, 15000);
+            } else {
+              console.log("video loaded quickly in less than 15s\nWill wait 25s before navigating");
+              setTimeout(function () {
+                goToVideo();
+              }, 25000);
             }
-
           }
         }
         loadFiles();
@@ -89,9 +94,12 @@
           gtag_report_conversion(); // Madem ki video cache'ye yazılacak kadar beklemiş, bunu da dönüşüm sayalım
         }
         // After 30 seconds go to video even if button is not clicked
-        geriSayim = setTimeout(function () {
-          zamanDoldu=true;
+        setTimeout(function () {
+          zamanDoldu30s=true;
         }, 28000);
+        setTimeout(function () {
+          zamanDoldu15s=true;
+        }, 13000);
       }
 
 
@@ -105,7 +113,7 @@
           main.style.display = "none";
         }, 500);
         gtag_report_conversion();
-        if (geriSayim) {          clearTimeout(geriSayim);        }
+        // if (geriSayim) {          clearTimeout(geriSayim);        }
       }
       /*
       secimKorece.addEventListener("mouseup",koreceHtmlYukle);
