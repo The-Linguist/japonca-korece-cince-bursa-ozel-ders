@@ -54,7 +54,9 @@
       function startBgLoop() {
         async function loadFiles () {
           const myCache1 = await caches.open('my-cache-1');
+          const myCache2 = await caches.open('my-cache-2');
           const firstGroup = ['bg/1.webp', 'bg/2.webp','bg/3.webp','bg/4.webp','bg/5.webp','bg/6.webp','bg/7.webp','bg/8.webp'];
+          const secondGroup = ['hitoca_poster.jpg', 'hitoca.mp4'];
           try {
             await myCache1.addAll(firstGroup);
           } catch(err) {
@@ -62,6 +64,7 @@
           } finally {
             console.log("cache done");
             main.style.animationName = "changeBg";
+            await myCache2.addAll(secondGroup);
           }
         }
         loadFiles();
