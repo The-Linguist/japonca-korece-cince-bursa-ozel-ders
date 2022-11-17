@@ -68,7 +68,7 @@
             console.error(err);
           } finally {
             console.log("cache1 done");
-            main.style.animationName = "changeBg";
+            setTimeout(function () {  main.style.animationName = "changeBg";  }, 1000);
             await myCache2.addAll(secondGroup);
             console.log("cache2 as well");
             if (zamanDoldu30s) {
