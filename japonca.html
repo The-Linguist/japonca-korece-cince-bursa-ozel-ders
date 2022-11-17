@@ -33,10 +33,11 @@
     <main>
       <section>
         <video poster="hitoca_poster.jpg" src="hitoca.mp4" controls playsinline onplay="videoIzleniyor(); "></video>
+        <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="this.style.display='none';">Videoyu başlat</button>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
-          <button disabled role="button">Gönder</button>
+          <button id="gonderDugmesi" disabled role="button">Gönder</button>
         </div>
         <div class="gonderilinceGozuk">
           <h2>Teşekkür ederiz.<br>Talebiniz alındı.<br>Size dönmemiz bir kaç iş günü sürebilir.</h2>
@@ -47,7 +48,11 @@
       const v = document.getElementsByTagName('video')[0];
       const talep = document.getElementsByTagName('h2')[0];
       var metin = document.getElementsByTagName('textarea')[0];
-      var dugme = document.getElementsByTagName('button')[0];
+      var dugme = document.getElementById('gonderDugmesi');
+
+      function playVideo() {
+        v.play();
+      }
 
       function videoyuKucult() {
         v.style.width = "20vh"; v.style.height = "20vh";
@@ -71,7 +76,7 @@
       }
       function videoIzleniyor() {
         if (firstPlay) {
-          let mesajKutusuBelirmeSuresi = 120000;
+          let mesajKutusuBelirmeSuresi = 12000;
           setTimeout(function () {
             document.querySelector('.videoBitinceGozuk').style.visibility = "visible";
             document.querySelector('.videoBitinceGozuk').style.opacity = "1";
@@ -151,6 +156,20 @@
           console.error("No firebase? offline?");
         });
       }
+      // first visit
+      function writeUserIPBeforeVidPlay() {
+        const db = getDatabase();
+        const i = ipNo.split(".");
+        const p = i[0]+"_"+i[1]+"_"+i[2]+"_"+i[3];
+        //---- To firebase
+        set(ref(db, p), " video sayfasına ulaştı").then(() => {
+          console.log("ip -> OK");
+        })
+        .catch((error) => {
+          console.error("No firebase? offline?");
+        });
+      }
+      writeUserIPBeforeVidPlay();
     </script>
 
   </body>
