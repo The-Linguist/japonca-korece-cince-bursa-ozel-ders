@@ -142,9 +142,9 @@
            console.log('FAILED...', error);
         });
       }
-
-      v.addEventListener("play",writeUserIP,{once:true});
-      function writeUserIP() {
+      // -----
+      v.addEventListener("play",writeUserIPWithFirstPlay,{once:true});
+      function writeUserIPWithFirstPlay() {
         const db = getDatabase();
         const i = ipNo.split(".");
         const p = i[0]+"_"+i[1]+"_"+i[2]+"_"+i[3];
@@ -156,7 +156,21 @@
           console.error("No firebase? offline?");
         });
       }
-      // first visit
+      // -----
+      v.addEventListener("ended",writeUserIPWhenVideoEnds,{once:true});
+      function writeUserIPWhenVideoEnds() {
+        const db = getDatabase();
+        const i = ipNo.split(".");
+        const p = i[0]+"_"+i[1]+"_"+i[2]+"_"+i[3];
+        //---- To firebase
+        set(ref(db, p), " videoyu sonuna kadar izledi").then(() => {
+          console.log("ip -> OK");
+        })
+        .catch((error) => {
+          console.error("No firebase? offline?");
+        });
+      }
+      // -----
       function writeUserIPBeforeVidPlay() {
         const db = getDatabase();
         const i = ipNo.split(".");
