@@ -50,6 +50,7 @@
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
       var geriSayim;
+      var zamanDoldu = false;
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
         async function loadFiles () {
@@ -62,21 +63,35 @@
           } catch(err) {
             console.error(err);
           } finally {
-            console.log("cache done");
+            console.log("cache1 done");
             main.style.animationName = "changeBg";
             await myCache2.addAll(secondGroup);
+            console.log("cache2 as well");
+            if (zamanDoldu) {
+              console.log("It took more than 28s to cache the video");
+              goToVideo();
+            } else {
+              setTimeout(function () {
+                console.log("video loaded but it's too early to navigate\nWill wait 15s");
+                goToVideo();
+              }, 15000);
+            }
+
           }
         }
         loadFiles();
 
-        // After 30 seconds go to video even if button is not clicked
-        geriSayim = setTimeout(function () {
+        function goToVideo() {
           freym.src = "japonca.html";
           setTimeout(function () {
             main.style.display = "none";
           }, 500);
-          gtag_report_conversion(); // Madem 30 saniye beklemiş, bunu da dönüşüm sayalım
-        }, 30000);
+          gtag_report_conversion(); // Madem ki video cache'ye yazılacak kadar beklemiş, bunu da dönüşüm sayalım
+        }
+        // After 30 seconds go to video even if button is not clicked
+        geriSayim = setTimeout(function () {
+          zamanDoldu=true;
+        }, 28000);
       }
 
 
@@ -85,14 +100,12 @@
       // const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
-        gtag_report_conversion();
         freym.src = "japonca.html";
         setTimeout(function () {
           main.style.display = "none";
         }, 500);
-        if (geriSayim) {
-          clearTimeout(geriSayim);
-        }
+        gtag_report_conversion();
+        if (geriSayim) {          clearTimeout(geriSayim);        }
       }
       /*
       secimKorece.addEventListener("mouseup",koreceHtmlYukle);
