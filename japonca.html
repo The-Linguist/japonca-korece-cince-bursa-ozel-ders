@@ -57,6 +57,7 @@
       const talep = document.getElementsByTagName('h2')[0];
       var metin = document.getElementsByTagName('textarea')[0];
       var dugme = document.getElementById('gonderDugmesi');
+      const footerBitly = document.getElementsByTagName('footer')[0];
 
       function playVideo() {
         v.play();
@@ -66,6 +67,7 @@
         v.style.width = "20vh"; v.style.height = "20vh";
         talep.style.transform = "scale(0.88)";
         talep.style.fontSize = "calc(1.5vmin + 6px)";
+        footerBitly.style.display = "none";
       }
 
       function birseylerYaziliyor() {
