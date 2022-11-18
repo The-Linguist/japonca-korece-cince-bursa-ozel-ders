@@ -34,12 +34,15 @@
     <main>
       <section>
         <video poster="hitoca_poster.jpg" src="hitoca.webm" controls playsinline onplay="videoIzleniyor(); "></video>
-        <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="this.style.display='none';">Videoyu başlat</button>
+        <div class="">
+          <button type="button" style="" onmouseup="top.location.assign('https://the-linguist.github.io/japonca-korece-cince-bursa-ozel-ders/');">Ana sayfaya geri dön</button>
+          <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="this.parentNode.style.display='none';">Videoyu başlat</button>
+        </div>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
           <textarea onfocus="videoyuKucult();" oninput="birseylerYaziliyor()"></textarea>
           <div class="">
-            <button id="geriDonID" type="button" style="" onmouseup="top.location.assign('https://the-linguist.github.io/japonca-korece-cince-bursa-ozel-ders/');">Japonya resimlerine geri dön</button>
+            <button type="button" style="" onmouseup="top.location.assign('https://the-linguist.github.io/japonca-korece-cince-bursa-ozel-ders/');">Ana sayfaya geri dön</button>
             <button id="gonderDugmesi" disabled role="button">Gönder</button>
           </div>
         </div>
