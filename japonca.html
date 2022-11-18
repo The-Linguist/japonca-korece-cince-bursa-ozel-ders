@@ -71,8 +71,14 @@
       var dugme = document.getElementById('gonderDugmesi');
       const footerBitly = document.getElementsByTagName('footer')[0];
 
-      function playVideo() {
+      function playVideo() { // onmousedown or 10s timeout
         v.play();
+      }
+      window.addEventListener("load",startCountDown);
+      function startCountDown() {
+        setTimeout(function () {
+          playVideo();
+        }, 10000);
       }
 
       function videoyuKucult() {
