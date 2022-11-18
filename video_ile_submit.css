@@ -6,7 +6,8 @@ main{
   display: flex; justify-content: center; align-items: center;
   z-index: 99;
   /*background-image: url("____bg.webp");*/ /* keep it INLINE */
-  background-color: LightSteelBlue; /* Used if the image is unavailable */
+  /* background-color: LightSteelBlue; */
+  /* Used if the image is unavailable */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
