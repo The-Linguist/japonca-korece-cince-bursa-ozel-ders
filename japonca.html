@@ -85,6 +85,7 @@
         if (localStorage.buVideonunIlkIzlenisiDegil) {
           // Don't auto play
           console.log("Returning user");
+          document.getElementById('playDugmesiParentID').style.display = "none";
         } else {
           console.log("First Time On The Page");
           setTimeout(function () {
