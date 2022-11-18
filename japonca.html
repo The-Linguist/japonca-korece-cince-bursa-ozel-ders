@@ -33,7 +33,7 @@
   <body>
     <main>
       <section>
-        <video poster="hitoca_poster.jpg" src="hitoca.mp4" controls playsinline onplay="videoIzleniyor(); "></video>
+        <video poster="hitoca_poster.jpg" src="hitoca.webm" controls playsinline onplay="videoIzleniyor(); "></video>
         <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="this.style.display='none';">Videoyu başlat</button>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
@@ -58,9 +58,14 @@
       var parser = new UAParser();
       var result = parser.getResult();
       console.log(result.browser.name);
-      console.log(result.device.vendor);
+      console.log(result.os.name);
       //---
       const v = document.getElementsByTagName('video')[0];
+
+      if (result.os.name == "Mac OS" || result.os.name == "iOS") {
+        v.src='hitoca.mp4';
+      }
+
       const talep = document.getElementsByTagName('h2')[0];
       var metin = document.getElementsByTagName('textarea')[0];
       var dugme = document.getElementById('gonderDugmesi');

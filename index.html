@@ -54,7 +54,7 @@
       var parser = new UAParser();
       var result = parser.getResult();
       console.log(result.browser.name);
-      console.log(result.device.vendor);
+      console.log(result.os.name);
       //---
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
@@ -67,17 +67,39 @@
         async function loadFiles () {
           const myCache1 = await caches.open('my-cache-1');
           const myCache2 = await caches.open('my-cache-2');
+          const myCache3 = await caches.open('my-cache-3');
           const firstGroup = ['bg/1.webp', 'bg/2.webp','bg/3.webp','bg/4.webp','bg/5.webp','bg/6.webp','bg/7.webp','bg/8.webp'];
-          const secondGroup = ['hitoca_poster.jpg', 'hitoca.mp4'];
+          const secondGroup = ['hitoca_poster.jpg'];
+          var thirdGroup;
+          if (result.os.name == "Mac OS" || result.os.name == "iOS") {
+            thirdGroup = ['hitoca.mp4'];
+          } else {
+            thirdGroup = ['hitoca.webm'];
+          }
           try {
             await myCache1.addAll(firstGroup);
           } catch(err) {
             console.error(err);
           } finally {
             console.log("cache1 done");
-            setTimeout(function () {  main.style.animationName = "changeBg";  }, 1000);
+            var counter = 0;
+            img1 = document.createElement("IMG"); img1.onload = function () { counter++; checkHowMany(); }; img1.src = "bg/1.webp";
+            img2 = document.createElement("IMG"); img2.onload = function () { counter++; checkHowMany(); }; img2.src = "bg/2.webp";
+            img3 = document.createElement("IMG"); img3.onload = function () { counter++; checkHowMany(); }; img3.src = "bg/3.webp";
+            img4 = document.createElement("IMG"); img4.onload = function () { counter++; checkHowMany(); }; img4.src = "bg/4.webp";
+            img5 = document.createElement("IMG"); img5.onload = function () { counter++; checkHowMany(); }; img5.src = "bg/5.webp";
+            img6 = document.createElement("IMG"); img6.onload = function () { counter++; checkHowMany(); }; img6.src = "bg/6.webp";
+            img7 = document.createElement("IMG"); img7.onload = function () { counter++; checkHowMany(); }; img7.src = "bg/7.webp";
+            img8 = document.createElement("IMG"); img8.onload = function () { counter++; checkHowMany(); }; img8.src = "bg/8.webp";
+            function checkHowMany() {
+              if (counter == 8) {
+                setTimeout(function () {  main.style.animationName = "changeBg";  }, 100);
+              }
+            }
             await myCache2.addAll(secondGroup);
             console.log("cache2 as well");
+            await myCache3.addAll(thirdGroup);
+            console.log("cache3 too");
             if (zamanDoldu30s) {
               console.log("It took more than 28s to cache the video\nNavigate immediately");
               if (!buttonWasUsed) {
