@@ -80,4 +80,8 @@ footer div{
   background-color: rgba(0, 0, 0, 0.55);
   border-radius: 10px;
 }
-p{margin: 5px;}
+p{margin: 5px; font-weight: lighter;}
+a{
+  color: white; font-weight: bold;
+  text-decoration: none;
+}
