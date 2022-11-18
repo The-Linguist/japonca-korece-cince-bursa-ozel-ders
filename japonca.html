@@ -82,13 +82,15 @@
       }
       window.addEventListener("load",startCountDown);
       function startCountDown() {
-        if (!localStorage.firstVisitHappened) {
+        if (localStorage.buVideonunIlkIzlenisiDegil) {
+          // Don't auto play
+          console.log("Returning user");
+        } else {
+          console.log("First Time On The Page");
           setTimeout(function () {
             playVideo();
             document.getElementById('playDugmesiParentID').style.display = "none";
           }, 8500);
-        } else {
-          localStorage.firstVisitHappened = "yep";
         }
       }
 
