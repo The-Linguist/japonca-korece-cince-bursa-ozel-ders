@@ -79,7 +79,7 @@ footer div{
   display: flex; justify-content: center; align-items: center; flex-direction: column;
   background-color: rgba(0, 0, 0, 0.55);
   border-radius: 10px;
-  padding: 2vmin;
+  padding: calc(2vmin + 5px);
 }
 p{margin: 5px; font-weight: lighter;}
 a{
