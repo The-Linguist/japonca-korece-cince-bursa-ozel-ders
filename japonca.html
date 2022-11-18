@@ -82,14 +82,14 @@
       }
       window.addEventListener("load",startCountDown);
       function startCountDown() {
-        setTimeout(function () {
-          if (!localStorage.isFirstVisit) {
+        if (!localStorage.firstVisitHappened) {
+          setTimeout(function () {
             playVideo();
             document.getElementById('playDugmesiParentID').style.display = "none";
-          } else {
-            localStorage.isFirstVisit = "yep";
-          }
-        }, 8500);
+          }, 8500);
+        } else {
+          localStorage.firstVisitHappened = "yep";
+        }
       }
 
       function videoyuKucult() {
