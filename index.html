@@ -94,6 +94,7 @@
             function checkHowMany() {
               if (counter == 8) {
                 setTimeout(function () {  main.style.animationName = "changeBg";  }, 100);
+                setTimeout(function () {  main.style.animationDuration = "41s";  }, 1111);
               }
             }
             await myCache2.addAll(secondGroup);
@@ -101,27 +102,29 @@
             await myCache3.addAll(thirdGroup);
             console.log("cache3 too");
             if (zamanDoldu30s) {
-              console.log("It took more than 28s to cache the video\nNavigate immediately");
-              if (!buttonWasUsed) {
-                console.log("...and the button still was not used");
-                goToVideo();
-              }
-            } else if (zamanDoldu15s) {
-              console.log("It took more than 15s to cache the video\nWill wait 15s before navigating");
+              console.log("It took more than 30s to cache the video\nNavigate quickly");
               setTimeout(function () {
                 if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
                   goToVideo();
                 }
               }, 15000);
-            } else {
-              console.log("video loaded quickly in less than 15s\nWill wait 25s before navigating");
+            } else if (zamanDoldu15s) {
+              console.log("It took more than 15s to cache the video\nWill wait 30s before navigating");
               setTimeout(function () {
                 if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
                   goToVideo();
                 }
-              }, 25000);
+              }, 30000);
+            } else {
+              console.log("video loaded quickly in less than 15s\nWill wait 45s before navigating");
+              setTimeout(function () {
+                if (!buttonWasUsed) {
+                  console.log("...and the button still was not used");
+                  goToVideo();
+                }
+              }, 45000);
             }
           }
         }
@@ -138,10 +141,10 @@
         // After 30 seconds go to video even if button is not clicked
         setTimeout(function () {
           zamanDoldu30s=true;
-        }, 28000);
+        }, 30000);
         setTimeout(function () {
           zamanDoldu15s=true;
-        }, 13000);
+        }, 15000);
       }
 
 
@@ -150,7 +153,7 @@
       // const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
-        console.log("going to video page because button was pressed\ncache timeout CANCELLED");
+        console.log("going to video page because button was pressed\ncache timeout will be ignored");
         buttonWasUsed = true;
         freym.src = "japonca.html";
         setTimeout(function () {
