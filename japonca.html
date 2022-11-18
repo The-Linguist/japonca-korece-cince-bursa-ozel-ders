@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>JAPONCA</title>
     <link rel="stylesheet" href="video_ile_submit.css">
+    <script src="ua-parser.min.js"></script>
     <style>
       main{background-image: url("japanbg.webp");}
     </style>
@@ -53,6 +54,12 @@
       </div>
     </footer>
     <script type="text/javascript">
+      var isApple = false;
+      var parser = new UAParser();
+      var result = parser.getResult();
+      console.log(result.browser.name);
+      console.log(result.device.vendor);
+      //---
       const v = document.getElementsByTagName('video')[0];
       const talep = document.getElementsByTagName('h2')[0];
       var metin = document.getElementsByTagName('textarea')[0];

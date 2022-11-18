@@ -6,7 +6,7 @@
     <title>JAPONCA - Bursa Özel Ders</title>
     <meta name="description" content="bursa japonca kursu, japonca dil kursu, japonca özel ders">
     <link rel="stylesheet" href="ilk_ekran.css">
-
+    <script src="ua-parser.min.js"></script>
     <script>
       if ("serviceWorker" in navigator) {  window.addEventListener("DOMContentLoaded",()=>{  navigator.serviceWorker.register("service-worker.js");  });  }
     </script>
@@ -50,6 +50,12 @@
       </div>
     </main>
     <script type="text/javascript">
+      var isApple = false;
+      var parser = new UAParser();
+      var result = parser.getResult();
+      console.log(result.browser.name);
+      console.log(result.device.vendor);
+      //---
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
       //var geriSayim;
