@@ -34,7 +34,7 @@
     <main>
       <section>
         <video poster="hitoca_poster.jpg" src="hitoca.webm" controls playsinline onplay="videoIzleniyor(); "></video>
-        <div class="">
+        <div id="playDugmesiParentID" class="">
           <button type="button" style="" onmouseup="top.location.assign('https://the-linguist.github.io/japonca-korece-cince-bursa-ozel-ders/');">Ana sayfaya geri dön</button>
           <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="this.parentNode.style.display='none';">Videoyu başlat</button>
         </div>
@@ -83,8 +83,12 @@
       window.addEventListener("load",startCountDown);
       function startCountDown() {
         setTimeout(function () {
-          playVideo();
-          document.getElementById('playDugmesi').style.display = "none";
+          if (!localStorage.isFirstVisit) {
+            playVideo();
+            document.getElementById('playDugmesiParentID').style.display = "none";
+          } else {
+            localStorage.isFirstVisit = "yep";
+          }
         }, 8500);
       }
 
