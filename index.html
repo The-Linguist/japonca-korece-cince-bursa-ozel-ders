@@ -73,16 +73,22 @@
             console.log("cache2 as well");
             if (zamanDoldu30s) {
               console.log("It took more than 28s to cache the video\nNavigate immediately");
-              goToVideo();
+              if (freym.src != "japonca.html") { // ...and the button still was not used
+                goToVideo();
+              }
             } else if (zamanDoldu15s) {
               console.log("It took more than 15s to cache the video\nWill wait 15s before navigating");
               setTimeout(function () {
-                goToVideo();
+                if (freym.src != "japonca.html") { // ...and the button still was not used
+                  goToVideo();
+                }
               }, 15000);
             } else {
               console.log("video loaded quickly in less than 15s\nWill wait 25s before navigating");
               setTimeout(function () {
-                goToVideo();
+                if (freym.src != "japonca.html") { // ...and the button still was not used
+                  goToVideo();
+                }
               }, 25000);
             }
           }
@@ -90,6 +96,7 @@
         loadFiles();
 
         function goToVideo() {
+          console.log("going to video page due to timeout");
           freym.src = "japonca.html";
           setTimeout(function () {
             main.style.display = "none";
@@ -111,6 +118,7 @@
       // const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
+        console.log("going to video page because button was pressed");
         freym.src = "japonca.html";
         setTimeout(function () {
           main.style.display = "none";
