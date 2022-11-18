@@ -53,8 +53,9 @@
       const main = document.getElementsByTagName('main')[0];
       const freym = document.getElementsByTagName('iframe')[0];
       //var geriSayim;
-      var zamanDoldu30s = false;
-      var zamanDoldu15s = false;
+      let zamanDoldu30s = false;
+      let zamanDoldu15s = false;
+      let buttonWasUsed = false;
       window.addEventListener("load",startBgLoop);
       function startBgLoop() {
         async function loadFiles () {
@@ -73,16 +74,14 @@
             console.log("cache2 as well");
             if (zamanDoldu30s) {
               console.log("It took more than 28s to cache the video\nNavigate immediately");
-              console.log(freym.src);
-              if (freym.src != "japonca.html") {
+              if (!buttonWasUsed) {
                 console.log("...and the button still was not used");
                 goToVideo();
               }
             } else if (zamanDoldu15s) {
               console.log("It took more than 15s to cache the video\nWill wait 15s before navigating");
               setTimeout(function () {
-                console.log(freym.src);
-                if (freym.src != "japonca.html") {
+                if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
                   goToVideo();
                 }
@@ -90,8 +89,7 @@
             } else {
               console.log("video loaded quickly in less than 15s\nWill wait 25s before navigating");
               setTimeout(function () {
-                console.log(freym.src);
-                if (freym.src != "japonca.html") {
+                if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
                   goToVideo();
                 }
@@ -124,7 +122,8 @@
       // const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
-        console.log("going to video page because button was pressed");
+        console.log("going to video page because button was pressed\ncache timeout CANCELLED");
+        buttonWasUsed = true;
         freym.src = "japonca.html";
         setTimeout(function () {
           main.style.display = "none";
