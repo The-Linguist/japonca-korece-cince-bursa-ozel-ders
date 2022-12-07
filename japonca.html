@@ -221,6 +221,8 @@
         .catch((error) => {
           console.error("No firebase? offline?");
         });
+        // --- mixpanel
+        mixpanel.track('Birisi vidyo izlemeye başladı');
       }
       // -----
       v.addEventListener("ended",writeUserIPWhenVideoEnds,{once:true});
@@ -235,6 +237,8 @@
         .catch((error) => {
           console.error("No firebase? offline?");
         });
+        // --- mixpanel
+        mixpanel.track('Birisi vidyo izlemeyi bitirdi');
       }
       // -----
       function writeUserIPBeforeVidPlay() {
