@@ -48,9 +48,10 @@
         <img src="beykagan_hoca.webp">
       </div>
       <div class="mesajIcerenDiv dropShadow">
-        <p>Beykağan Hoca Bursa'da her seviye için yüzyüze Japonca (日本語) dersleri veriyor; daha fazla bilgi almak ve eğer istersen ders talebi oluşturmak için</p>
+        <p>Kayıtlarımız dolmuştur. Boşluk oluşması durumunda size dönmemiz için talep oluşturabilirsiniz.</p>
+        <!-- <p>Beykağan Hoca Bursa'da her seviye için yüzyüze Japonca (日本語) dersleri veriyor; daha fazla bilgi almak ve eğer istersen ders talebi oluşturmak için</p> -->
         <div class="" style="text-align:center;">
-          <button class="button-30" role="button">TANITIM VİDEOSU İZLE</button>
+          <button class="button-30" role="button">Talep oluştur</button>
           <!-- <button style="text-align:center; font-size: 11px; padding-left: 1ch; padding-right: 1ch;" role="button" disabled>Korece<br>한국어</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
           <!-- <button style="text-align:center; font-size: 11px; padding-left: 1ch; padding-right: 1ch;" role="button" disabled>Çince<br>華語</button> -->
         </div>
@@ -109,27 +110,27 @@
             await myCache3.addAll(thirdGroup);
             console.log("cache3 too");
             if (zamanDoldu30s) {
-              console.log("It took more than 30s to cache the video\nNavigate quickly");
+              console.log("It took more than 30s to cache the video"); // Can navigate quickly
               setTimeout(function () {
                 if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
-                  goToVideo();
+                  // goToVideo();
                 }
               }, 15000);
             } else if (zamanDoldu15s) {
-              console.log("It took more than 15s to cache the video\nWill wait 30s before navigating");
+              console.log("It took more than 15s to cache the video"); // Must wait 30s before navigating
               setTimeout(function () {
                 if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
-                  goToVideo();
+                  // goToVideo();
                 }
               }, 30000);
             } else {
-              console.log("video loaded quickly in less than 15s\nWill wait 45s before navigating");
+              console.log("video loaded quickly in less than 15s"); // Must wait 45s before navigating
               setTimeout(function () {
                 if (!buttonWasUsed) {
                   console.log("...and the button still was not used");
-                  goToVideo();
+                  // goToVideo();
                 }
               }, 45000);
             }
@@ -137,6 +138,7 @@
         }
         loadFiles();
 
+        /*
         function goToVideo() {
           console.log("going to video page due to timeout");
           freym.src = "japonca.html";
@@ -145,6 +147,7 @@
           }, 500);
           gtag_report_conversion(); // Madem ki video cache'ye yazılacak kadar beklemiş, bunu da dönüşüm sayalım
         }
+        */
         // After 30 seconds go to video even if button is not clicked
         setTimeout(function () {
           zamanDoldu30s=true;
@@ -160,7 +163,7 @@
       // const secimCince = document.getElementsByTagName('button')[2];
       secimJaponca.addEventListener("mouseup",hitocaHtmlYukle);
       function hitocaHtmlYukle() {
-        console.log("going to video page because button was pressed\ncache timeout will be ignored");
+        console.log("going to video page because button was pressed"); // cache timeout will be ignored
         buttonWasUsed = true;
         freym.src = "japonca.html";
         setTimeout(function () {

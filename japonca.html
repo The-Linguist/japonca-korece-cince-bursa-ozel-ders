@@ -40,7 +40,7 @@
         <video poster="hitoca_poster.jpg" src="hitoca.webm" controls playsinline onplay="videoIzleniyor(); "></video>
         <div id="playDugmesiParentID" class="">
           <!-- <button type="button" style="" onmouseup="top.location.assign('https://the-linguist.github.io/japonca-korece-cince-bursa-ozel-ders/');">Ana sayfaya geri dön</button> -->
-          <button id="playDugmesi" type="button" name="button" onmousedown="playVideo();" onmouseup="">Videoyu başlat</button>
+          <button id="playDugmesi" type="button" name="button" onclick="playVideo();" onmouseup="">Videoyu başlat</button>
         </div>
         <div class="videoBitinceGozuk" style="visibility: hidden;">
           <h2>Talep oluşturmak için adınızı yazdıktan sonra altına telefonunuzu ya da <span style="white-space:nowrap;">e-mail<span> adresinizi ekleyiniz</h2>
@@ -84,6 +84,7 @@
       function playVideo() { // onmousedown or 10s timeout
         v.play();
       }
+      /*
       window.addEventListener("load",startCountDown);
       function startCountDown() {
         if (localStorage.buVideonunIlkIzlenisiDegil) {
@@ -93,11 +94,11 @@
         } else {
           console.log("First Time On The Page");
           setTimeout(function () {
-            playVideo();
+            // playVideo();
           }, 3500);
         }
       }
-
+      */
       function videoyuKucult() {
         v.style.width = "20vh"; v.style.height = "20vh";
         talep.style.transform = "scale(0.88)";
@@ -111,6 +112,7 @@
         }
       }
 
+      /*
       var firstPlay = true;
       if (localStorage.buVideonunIlkIzlenisiDegil) {
         firstPlay = false;
@@ -129,6 +131,12 @@
           }, mesajKutusuBelirmeSuresi);
         }
         firstPlay = false;
+      }
+      */
+      window.addEventListener("load",revealForm);
+      function revealForm() {
+        document.querySelector('.videoBitinceGozuk').style.visibility = "visible";
+        document.querySelector('.videoBitinceGozuk').style.opacity = "1";
       }
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
